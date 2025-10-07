@@ -1,0 +1,282 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoría en Costos: El Podcast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #6A4A3C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 340px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .cta-button {
+            background-color: #CC333F;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #a82a34;
+        }
+        .accent-leader {
+            border: 4px solid #CC333F; 
+            box-shadow: 0 0 15px rgba(204, 51, 63, 0.5);
+        }
+        .stat-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #00A0B0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-white shadow-md p-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#00A0B0]">Mentoría en Costos: El Podcast</h1>
+        <p class="text-lg mt-2">Liderado por Keyter Key, con 4 perspectivas para dominar la disciplina.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4 text-[#CC333F]">El Poder del Conocimiento Auditivo</h2>
+                
+                <!-- INICIO: BLOQUE DE RETENCIÓN AUDITIVA CON MÉTRICA CENTRAL Y CONTEXTO SIMPLIFICADO -->
+                <p class="text-lg font-semibold mb-2 text-gray-800">
+                    Aprovecha la eficiencia del audio. Nuestro formato te permite alinearte a los hábitos de los profesionales exitosos que dedican 30 minutos al conocimiento diario.
+                </p>
+                <p class="text-6xl md:text-7xl font-black text-[#00A0B0] my-4">
+                    +30%
+                </p>
+                <!-- La frase de retención auditiva superior ha sido eliminada. -->
+                
+                <!-- Párrafo de la sinergia (texto que debe permanecer igual) -->
+                <p class="mt-4">
+                    El equipo lo conforman cuatro líderes, profesionales docentes y gerenciales. Ellos aportan la perfecta sinergia entre el rigor universitario y la experiencia práctica.
+                </p>
+                <p class="mt-2">
+                    Su experticia transforma la contabilidad de costos en indicadores que son información esencial para la gestión estratégica de costos y la toma de decisiones, convirtiéndose en un motor esencial que toda empresa necesita para el crecimiento sostenible.
+                </p>
+
+            </div>
+
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#CC333F]">Conoce a los 4 Mentores</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    
+                    <!-- KEYTER KEY -->
+                    <div class="team-member bg-gray-50 p-4 accent-leader">
+                        <div class="bg-[#CC333F] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">K</div>
+                        <h3 class="font-bold text-lg text-[#CC333F]">Keyter Key</h3>
+                        <p class="text-sm font-semibold">Economista, 20+ Años de Experiencia.</p>
+                        <p class="text-xs mt-1">Especialista en Administración Avanzada de Costos, Docente UAH e Investigador en la disciplina.</p>
+                    </div>
+                    
+                    <!-- SIMON ASCANIO -->
+                    <div class="team-member bg-gray-50 p-4">
+                        <div class="bg-[#EB6841] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">S</div>
+                        <h3 class="font-bold text-lg text-[#EB6841]">Simon Ascanio</h3>
+                        <p class="text-sm font-semibold">Administrador, Magister en Cs. Administrativas.</p>
+                        <p class="text-xs mt-1">Experto en Planificación, Presupuesto y Auditoría Gubernamental. Docente UNEXCA.</p>
+                    </div>
+                    
+                    <!-- INGERSON FREITES -->
+                    <div class="team-member bg-gray-50 p-4">
+                        <div class="bg-[#00A0B0] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">I</div>
+                        <h3 class="font-bold text-lg text-[#00A0B0]">Ingerson Freites</h3>
+                        <p class="text-sm font-semibold">Economista, Ex Intendente SUNDDE.</p>
+                        <p class="text-xs mt-1">Dirigió la Intendencia de Costos, Ganancias y Precios Justos. Docente UCV.</p>
+                    </div>
+                    
+                    <!-- LUIS MARÍN -->
+                    <div class="team-member bg-gray-50 p-4">
+                        <div class="bg-[#EDC951] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">L</div>
+                        <h3 class="font-bold text-lg text-[#EDC951]">Luis Marín</h3>
+                        <p class="text-sm font-semibold">Lcdo. en Contaduría, Magister en Adm. de Negocios.</p>
+                        <p class="text-xs mt-1">Especialista en Presupuesto y Planificación Financiera. Docente UAH.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-center mb-4 text-[#CC333F]">Foco de Valor del Podcast</h3>
+                <p class="text-center mb-4">El contenido está estructurado para maximizar la aplicabilidad. Nuestros tres pilares de valor aseguran que cada episodio sea una inversión.</p>
+                <div class="chart-container">
+                    <canvas id="benefitsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-center mb-4 text-[#CC333F]">Dominio del Equipo por Área</h3>
+                <p class="text-center mb-4">Visualización del nivel de <span class="italic text-[#CC333F]">expertise</span> colectivo que el equipo de mentores cubre en los temas centrales de la disciplina.</p>
+                <div class="chart-container">
+                    <canvas id="genresChart"></canvas>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8 text-center">
+                <h2 class="text-3xl font-bold mb-4 text-[#00A0B0]">¡Recibe la Mentoría Directa!</h2>
+                <p class="text-lg mb-6">Suscríbete para recibir los enlaces directos a los nuevos episodios, análisis de casos de estudio y anuncios de eventos en vivo con el equipo de 4 mentores.</p>
+                
+                <a href="TU_ENLACE_DE_GOOGLE_FORMS_AQUI" target="_blank" class="cta-button font-bold py-3 px-8 rounded-lg text-lg inline-block">¡Quiero Escuchar a los Expertos!</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center p-4 mt-8">
+        <p>&copy; 2025 Mentoria en Costos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label, maxLength) => {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const benefitsCtx = document.getElementById('benefitsChart').getContext('2d');
+            new Chart(benefitsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Visión Estratégica de Keyter', 'Perspectivas Diversas del Equipo', 'Aplicación Táctica Inmediata'],
+                    datasets: [{
+                        label: 'Foco de Valor',
+                        data: [40, 35, 25], 
+                        backgroundColor: ['#CC333F', '#00A0B0', '#EB6841'],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...sharedChartOptions }
+            });
+
+            const genresCtx = document.getElementById('genresChart').getContext('2d');
+            const rawGenresLabels = [
+                'Estrategia de Costos y Rentabilidad', 
+                'Toma de Decisiones Gerenciales', 
+                'Control de Gestión (Budgeting)', 
+                'Fundamentos Esenciales de Costos', 
+                'Costeo bajo Normativa Contable'
+            ];
+            
+            const genresData = [100, 90, 85, 75, 70]; 
+
+            new Chart(genresCtx, {
+                type: 'bar',
+                data: {
+                    labels: rawGenresLabels.map(label => wrapLabel(label, 16)), 
+                    datasets: [{
+                        label: 'Nivel de Dominio',
+                        data: genresData,
+                        backgroundColor: ['#CC333F', '#00A0B0', '#EDC951', '#EB6841', '#6A4A3C'],
+                        borderColor: 'rgba(0,0,0,0)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...sharedChartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false
+                            }
+                        },
+                        x: {
+                            max: 100, 
+                            grid: {
+                                color: '#f0f0f0'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    },
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
