@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesa de Costos: Lectura para la Gerencia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Palette: Energetic & Playful (00A0B0, CC333F, EB6841, EDC951, 6A4A3C) - NO SVG/Mermaid JS USED -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        /* Optimized Chart Container for better label display */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 340px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            color: #EB6841;
+            margin: 0 1rem;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .flow-arrow::after {
+                display: inline-block;
+            }
+        }
+        .flow-arrow:last-child::after {
+            display: none;
+        }
+        .cta-button {
+            background-color: #CC333F;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #a82a34;
+        }
+        .stat-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #00A0B0;
+        }
+    </style>
+</head>
+<body class="text-[#6A4A3C]">
+
+    <header class="bg-white shadow-md p-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#00A0B0]">Mesa de Costos: Lectura para la Gerencia</h1>
+        <p class="text-lg mt-2">Potencia tu conocimiento y conecta con profesionales como tú.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4 text-[#CC333F]">Los líderes son lectores</h2>
+                <p class="text-5xl md:text-7xl font-black text-[#00A0B0]">88%</p>
+                <p class="text-xl mt-2">de las personas financieramente exitosas dedican 30 minutos o más cada día a la lectura para el autodesarrollo.</p>
+                <p class="mt-4">Este es el espacio para construir ese hábito juntos, enfocados en los temas que impulsan nuestra carrera: **contabilidad, gestión de costos** y la **toma de decisiones** estratégica.</p>
+            </div>
+
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#CC333F]">¿Cómo Funciona Nuestro Club?</h2>
+                <div class="flex flex-col md:flex-row justify-around items-center">
+                    <div class="flow-step flow-arrow mb-6 md:mb-0">
+                        <div class="bg-[#EDC951] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">1</div>
+                        <h3 class="font-bold text-lg">Vota por el Libro</h3>
+                        <p class="text-sm">La comunidad elige nuestra próxima lectura de una selección curada.</p>
+                    </div>
+                    <div class="flow-step flow-arrow mb-6 md:mb-0">
+                        <div class="bg-[#EB6841] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">2</div>
+                        <h3 class="font-bold text-lg">Lee a tu Ritmo</h3>
+                        <p class="text-sm">Tienes un mes para leer y asimilar los conceptos clave del libro.</p>
+                    </div>
+                    <div class="flow-step flow-arrow mb-6 md:mb-0">
+                        <div class="bg-[#00A0B0] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">3</div>
+                        <h3 class="font-bold text-lg">Discútelo en Vivo</h3>
+                        <p class="text-sm">Nos reunimos en una sesión mensual para debatir ideas y aplicaciones prácticas.</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="bg-[#CC333F] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-2">4</div>
+                        <h3 class="font-bold text-lg">Crece y Repite</h3>
+                        <p class="text-sm">Aplicas lo aprendido y te preparas para el siguiente ciclo de conocimiento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-center mb-4 text-[#CC333F]">Beneficios Clave para Miembros</h3>
+                <p class="text-center mb-4">Más que solo leer, buscamos un crecimiento integral. Los beneficios de unirte se centran en tres pilares fundamentales que te ayudarán a destacar profesionalmente.</p>
+                <div class="chart-container">
+                    <canvas id="benefitsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-center mb-4 text-[#CC333F]">Géneros que Exploraremos</h3>
+                <p class="text-center mb-4">Nuestra biblioteca se enfocará en temas cruciales para la toma de decisiones y la gestión empresarial, asegurando que cada libro aporte un valor tangible a tu carrera.</p>
+                <div class="chart-container">
+                    <canvas id="genresChart"></canvas>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8 text-center">
+                <h2 class="text-3xl font-bold mb-4 text-[#00A0B0]">¡Únete a la Conversación!</h2>
+                <p class="text-lg mb-6">Forma parte de una comunidad de profesionales que, como tú, están comprometidos con el aprendizaje continuo y la excelencia.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUcysha5s0nzv0_w8lIKY5XUQcrl6GxKxRNdo7eWJRA45JhA/viewform?usp=header" class="cta-button font-bold py-3 px-8 rounded-lg text-lg inline-block">¡Quiero Unirme al Club!</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center p-4 mt-8">
+        <p>&copy; 2025 Tu Comunidad de Costos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wrapLabel = (label, maxLength) => {
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const sharedChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            };
+
+            const benefitsCtx = document.getElementById('benefitsChart').getContext('2d');
+            new Chart(benefitsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Conocimiento Aplicado', 'Networking Estratégico', 'Crecimiento Profesional'],
+                    datasets: [{
+                        label: 'Pilares del Club',
+                        data: [45, 30, 25],
+                        backgroundColor: ['#00A0B0', '#EB6841', '#EDC951'],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...sharedChartOptions }
+            });
+
+            const genresCtx = document.getElementById('genresChart').getContext('2d');
+            const rawGenresLabels = [
+                'Estrategia de Costos y Rentabilidad', 
+                'Toma de Decisiones Empresariales', 
+                'Gestión Empresarial', 
+                'Fundamentos Esenciales de Costos', 
+                'Costo bajo Normativa Contable'
+            ];
+            // Data con la nueva distribución de prioridades
+            const genresData = [80, 90, 85, 70, 100]; 
+
+            new Chart(genresCtx, {
+                type: 'bar',
+                data: {
+                    labels: rawGenresLabels.map(label => wrapLabel(label, 16)), 
+                    datasets: [{
+                        label: 'Nivel de Prioridad',
+                        data: genresData,
+                        backgroundColor: ['#00A0B0', '#6A4A3C', '#CC333F', '#EB6841', '#EDC951'],
+                        borderColor: 'rgba(0,0,0,0)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...sharedChartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false
+                            }
+                        },
+                        x: {
+                            max: 100, /* Eje máximo ajustado al 100% para mostrar el puntaje completo */
+                            grid: {
+                                color: '#f0f0f0'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    },
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
